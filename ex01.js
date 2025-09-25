@@ -7,7 +7,18 @@ Create a function named sumLargestNumbers that will receive an array of numbers 
 */
 
 const sumLargestNumbers = function (data) {
-  // Put your solution here
+  let largestNumber1 = 0;
+  let largestNumber2 = 0;
+  data.forEach((element) => {
+    if (element > largestNumber1) {
+      largestNumber2 = largestNumber1;
+      largestNumber1 = element;
+    } else if (element > largestNumber2) {
+      largestNumber2 = element;
+    }
+  });
+
+  return largestNumber1 + largestNumber2;
 };
 
 console.log(sumLargestNumbers([1, 10])); // 11

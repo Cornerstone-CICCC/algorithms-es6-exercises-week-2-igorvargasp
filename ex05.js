@@ -18,7 +18,15 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function (text) {
-  // Put your solution here
+  let textWithPercent = ""
+  text.split("").forEach((item) => {
+    if(item === " "){
+      textWithPercent += "%20"
+    }else{
+      textWithPercent += item
+    }
+  })
+  return textWithPercent
 };
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
