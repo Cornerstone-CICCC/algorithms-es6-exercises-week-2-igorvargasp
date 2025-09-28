@@ -9,7 +9,15 @@ Create a function named camelCase that will convert a string to camel case, and 
 */
 
 const camelCase = function (input) {
-  // Your code here
+   return input
+    .trim()
+    .split(/\s+/)
+    .map((word, index) => {
+      word = word.toLowerCase();
+      if (index === 0) return word;
+      return word[0].toUpperCase() + word.slice(1);
+    })
+    .join('');
 };
 
 console.log(camelCase("this is a string")); // thisIsAString

@@ -15,8 +15,73 @@ For more information on casing styles, read Wikipedia's Special Case Styles for 
 
 */
 
+const vowels = ["a", "e", "i", "o", "u"];
+
+const getCamel = (input) =>
+  input
+    .split(" ")
+    .map((word, index) =>
+      index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join("");
+
+const getPascal = (input) =>
+  input
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join("");
+
+const getSnake = (input) =>
+  input
+    .split(" ")
+    .map((word) => word)
+    .join("_");
+
+const getKebab = (input) =>
+  input
+    .split(" ")
+    .map((word) => word)
+    .join("-");
+
+const getTitle = (input) =>
+  input
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join("");
+
+const getVowels = (input) =>
+  input
+    .split("")
+    .map((ch) => (vowels.includes(ch.toLowerCase()) ? ch.toUpperCase() : ch))
+    .join("");
+
+const getConsonants = (input) =>
+  input
+    .split("")
+    .map((ch) => (!vowels.includes(ch.toLowerCase()) ? ch.toUpperCase() : ch))
+    .join("");
+
+const getUpperSnake = (input) => input.split(" ").map((word) => word.toUpperCase()).join("_")
+
 const makeCaze = function (input, caze) {
-  // Put your solution here
+  switch (caze) {
+    case "camel":
+      return getCamel(input);
+    case "pascal":
+      return getPascal(input);
+    case "snake":
+      return getSnake(input);
+    case "kebab":
+      return getKebab(input);
+    case "title":
+      return getTitle(input);
+    case "vowel":
+      return getVowels(input);
+    case "consonant":
+      return getConsonants(input);
+    default:
+      return getUpperSnake(input);
+  }
 };
 
 console.log(makeCaze("this is a string", "camel")); // thisIsAString

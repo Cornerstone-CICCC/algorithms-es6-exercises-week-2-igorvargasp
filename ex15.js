@@ -9,7 +9,15 @@ Create a function named organizeInstructors that will receive an array of instru
 */
 
 const organizeInstructors = function (instructors) {
-  // Put your solution here
+  const coursesTeacher = {};
+  instructors.forEach((instructor) => {
+    if (!coursesTeacher[instructor.course]) {
+      coursesTeacher[instructor.course] = [instructor.name];
+    } else {
+      coursesTeacher[instructor.course].push(instructor.name);
+    }
+  });
+  return coursesTeacher;
 };
 
 console.log(

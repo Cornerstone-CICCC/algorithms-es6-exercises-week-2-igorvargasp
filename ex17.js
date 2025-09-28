@@ -22,11 +22,13 @@ Create a function named urlDecode that will receive a URL encoded string, and re
 */
 
 const urlDecode = function (text) {
-  // Put your solution here
+  return text.split("=").map((word, index) => {
+  
+  })
 };
 
 console.log(urlDecode("duck=rubber")); //{duck: "rubber"}
-console.log(urlDecode("city=Vancouver&weather=lots%20of%20rain")); // {city: "Vancouver", weather: "lots of rain"}
-console.log(urlDecode("city=Vancouver&weather=lots%20of%20rain").weather); // "lots of rain"
+// console.log(urlDecode("city=Vancouver&weather=lots%20of%20rain")); // {city: "Vancouver", weather: "lots of rain"}
+// console.log(urlDecode("city=Vancouver&weather=lots%20of%20rain").weather); // "lots of rain"
 
 module.exports = urlDecode;

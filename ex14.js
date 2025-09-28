@@ -21,9 +21,30 @@ Dime (10¢)
 Nickel (5¢)
 Penny (1¢)
 */
+const denominations = {
+  "Twenty dollars": 2000,
+  "Ten dollars": 1000,
+  "Five dollars": 500,
+  "Two dollars": 200,
+  "One dollar": 100,
+  "Quarter": 25,
+  "Dime": 10,
+  "Nickel": 5,
+  "Penny": 1,
+};
 
 const calculateChange = function (total, cash) {
-  // Your code here
+  let change = cash - total;
+  const result = {};
+  
+  for(let [key, value] of Object.entries(denominations)){
+    if(change > value) {
+      let count = Math.floor(change / value)
+      result[key] = count;
+      change -= count * value;
+    }
+  }
+  return result;
 };
 
 console.log(calculateChange(1787, 2000)); // { twoDollar: 1, dime: 1, penny: 3 }
